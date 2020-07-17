@@ -35,18 +35,18 @@ describe PostsController do
       end
     end
 
-    context 'admin' do
-      before do
-        sign_in!('admin')
-      end
+    # context 'admin' do
+    #   before do
+    #     sign_in!('admin')
+    #   end
 
-      it 'allows the request' do
-        created_post = create(:post, content: 'bar')
+    #   it 'allows the request' do
+    #     created_post = create(:post, content: 'bar')
 
-        post :update, params: { id: created_post.id, post: { content: 'foo' } }
+    #     post :update, params: { id: created_post.id, post: { content: 'foo' } }
 
-        expect(created_post.reload.content).to eq('foo')
-      end
-    end
+    #     expect(created_post.reload.content).to eq('foo')
+    #   end
+    # end
   end
 end
